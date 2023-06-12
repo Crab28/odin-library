@@ -55,9 +55,11 @@ function createBookElement(bookInfo) {
 const theHobbit = new Book('The Hobbit', 'J.K.', '277', 'not read');
 const theHobbit2 = new Book('The Hobbit2', 'J.K.2', '477', 'read');
 const theHobbit3 = new Book('The Hobbit3', 'J.K.3', '377', 'not read');
+const theHobbit4 = new Book('The Hobbit3', 'J.K.3', '377', 'not read');
 
 addBookToLibrary(theHobbit);
 addBookToLibrary(theHobbit2);
 addBookToLibrary(theHobbit3);
+addBookToLibrary(theHobbit4);
 
 displayBooks();
