@@ -27,8 +27,6 @@ function displayBooks() {
         const bookInfo = book.getInfo();
 
         cardContainer.appendChild(createBookElement(bookInfo));
-
-        console.log(bookInfo);
     });
 }
 
