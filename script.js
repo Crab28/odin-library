@@ -1,10 +1,11 @@
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, read, id) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
+    this.id = id;
 }
 
 Book.prototype.getInfo = function() {
@@ -17,7 +18,7 @@ Book.prototype.getInfo = function() {
 }
 
 function createBook(info) {
-    const book = new Book(info.title, info.author, info.pages, info.read);
+    const book = new Book(info.title, info.author, info.pages, info.read, myLibrary.length);
     addBookToLibrary(book);
 }
 
@@ -162,8 +163,6 @@ function createFormButtons() {
             }
         });
 
-        console.log(formValues);
-
         bookInfo = {
             title: formValues[0],
             author: formValues[1],
@@ -187,10 +186,10 @@ function createFormButtons() {
     return containerEl;
 }
 
-const theHobbit = new Book('The Hobbit', 'J.K.', '277', 'not read');
-const theHobbit2 = new Book('The Hobbit2', 'J.K.2', '477', 'read');
-const theHobbit3 = new Book('The Hobbit3', 'J.K.3', '377', 'not read');
-const theHobbit4 = new Book('The Hobbit3', 'J.K.3', '377', 'not read');
+const theHobbit = new Book('The Hobbit', 'J.K.', '277', 'not read', 0);
+const theHobbit2 = new Book('The Hobbit2', 'J.K.2', '477', 'read', 1);
+const theHobbit3 = new Book('The Hobbit3', 'J.K.3', '377', 'not read', 2);
+const theHobbit4 = new Book('The Hobbit3', 'J.K.3', '377', 'not read', 3);
 
 addBookToLibrary(theHobbit);
 addBookToLibrary(theHobbit2);
