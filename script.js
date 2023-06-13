@@ -16,6 +16,11 @@ Book.prototype.getInfo = function() {
     }
 }
 
+function createBook(info) {
+    const book = new Book(info.title, info.author, info.pages, info.read);
+    addBookToLibrary(book);
+}
+
 function createListeners() {
     const bookCreatorBtn = document.getElementById('book-create-btn');
     bookCreatorBtn.addEventListener('click', () => {
@@ -28,13 +33,23 @@ function addBookToLibrary(book) {
 }
 
 function displayBooks() {
-    const cardContainer = document.getElementById('card-container');
+    const mainContainerEl = document.getElementById('main-container');
+
+    if (document.getElementById('card-container')) {
+        document.getElementById('card-container').remove();
+    }
+
+    const cardContainer = document.createElement('div');
+    cardContainer.classList.add('card-container');
+    cardContainer.id = 'card-container';
 
     myLibrary.forEach(book => {
         const bookInfo = book.getInfo();
 
         cardContainer.appendChild(createBookElement(bookInfo));
     });
+
+    mainContainerEl.appendChild(cardContainer);
 }
 
 function createBookElement(bookInfo) {
@@ -138,11 +153,27 @@ function createFormButtons() {
         let formValues = [];
 
         formItemNames.forEach(element => {
-            const fieldValue = document.getElementById(element).value;
-            formValues.push(fieldValue);
+            if (element !== 'read') {
+                const fieldValue = document.getElementById(element).value;
+                formValues.push(fieldValue);
+            } else {
+                const fieldValue = document.getElementById(element).checked;
+                formValues.push(fieldValue);
+            }
         });
 
         console.log(formValues);
+
+        bookInfo = {
+            title: formValues[0],
+            author: formValues[1],
+            pages: formValues[2],
+            read: formValues[3] === true ? 'Read' : 'Not Read'
+        }
+
+        createBook(bookInfo);
+        displayBooks();
+
         document.getElementById('creator-container').remove();
     })
 
