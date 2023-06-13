@@ -80,3 +80,85 @@ h1 {
 .top-container .btn:focus {
     outline: none;
 }
+
+#creator-container {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.493);
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+}
+
+#creator-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    line-height: 2rem;
+    width: 250px;
+}
+
+#creator-form legend {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.form-item {
+    padding-right: 20px;
+}
+
+.form-item input:not(.form-item-checkbox input) {
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 5px 10px;
+    margin: 0 auto;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.623);
+}
+
+.form-item-checkbox {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    justify-content: center;
+    width: 100%;
+    margin-top: 7px;
+}
+
+.form-item-checkbox label {
+    margin-left: 20px;
+}
+
+.form-item-checkbox input {
+    justify-self: flex-end;
+    width: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.form-buttons {
+    display: grid;
+    grid-template-columns: 45% 45%;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.form-buttons .btn {
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+.form-buttons .btn:active {
+    transform: scale(0.98);
+}
