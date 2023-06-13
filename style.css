@@ -43,13 +43,18 @@ h1 {
 .card h4 {
     font-size: 1.4rem;
     font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .card h6 {
     font-size: 1rem;
     display: inline;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
-
 
 .top-container {
     display: flex;
@@ -161,4 +166,18 @@ h1 {
 
 .form-buttons .btn:active {
     transform: scale(0.98);
+}
+
+.read-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.read-container input {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }

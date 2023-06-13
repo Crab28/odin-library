@@ -63,10 +63,19 @@ function createBookElement(bookInfo) {
     authorEl.textContent = bookInfo.author;
     const pagesEl = document.createElement('h6');
     pagesEl.textContent = bookInfo.pages;
-    const readEl = document.createElement('h6');
-    readEl.textContent = bookInfo.read;
 
-    const elementsArray = [titleEl, authorEl, pagesEl, readEl];
+    const readContainer = document.createElement('div');
+    readContainer.classList.add('read-container')
+    const readEl = document.createElement('h6');
+    const readInputEl = document.createElement('input');
+
+    readInputEl.type = 'checkbox';
+    bookInfo.read === 'Read' ? readInputEl.checked = true : readInputEl.checked = false;
+    readEl.textContent = bookInfo.read;
+    readContainer.appendChild(readEl);
+    readContainer.appendChild(readInputEl);
+
+    const elementsArray = [titleEl, authorEl, pagesEl, readContainer];
     
     elementsArray.forEach(el => {
         newDiv.appendChild(el);
@@ -186,10 +195,10 @@ function createFormButtons() {
     return containerEl;
 }
 
-const theHobbit = new Book('The Hobbit', 'J.K.', '277', 'not read', 0);
-const theHobbit2 = new Book('The Hobbit2', 'J.K.2', '477', 'read', 1);
-const theHobbit3 = new Book('The Hobbit3', 'J.K.3', '377', 'not read', 2);
-const theHobbit4 = new Book('The Hobbit3', 'J.K.3', '377', 'not read', 3);
+const theHobbit = new Book('The Hobbit', 'J.K.', '277', 'Not Read', 0);
+const theHobbit2 = new Book('The Hobbit2', 'J.K.2', '477', 'Read', 1);
+const theHobbit3 = new Book('The Hobbit3', 'J.K.3', '377', 'Not Read', 2);
+const theHobbit4 = new Book('The Hobbit3', 'J.K.3', '377', 'Not Read', 3);
 
 addBookToLibrary(theHobbit);
 addBookToLibrary(theHobbit2);
