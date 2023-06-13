@@ -8,40 +8,12 @@
     <title>Odin - Library App</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="main-container">
         <div class="top-container">
             <h1>List of Books</h1>
-            <button type="button" class="btn">New Book</button>
+            <button type="button" class="btn" id="book-create-btn">New Book</button>
         </div>
-        <div class="card-container" id="card-container">
-        </div>
-        <div id="creator-container">
-            <form id="creator-form">
-                <fieldset>
-                    <legend>Create Book</legend>
-                    <div class="form-item">
-                        <label for="title">Title</label>
-                        <input type="text" name="title" id="title">
-                    </div>
-                    <div class="form-item">
-                        <label for="author">Author</label>
-                        <input type="text" name="author" id="author">
-                    </div>
-                    <div class="form-item">
-                        <label for="pages">Pages</label>
-                        <input type="number" name="pages" id="pages">
-                    </div>
-                    <div class="form-item form-item-checkbox">
-                        <label for="read">Read It:</label>
-                        <input type="checkbox" name="read" id="read">
-                    </div>
-                </fieldset>
-                <div class="form-buttons">
-                    <button type="submit" class="btn">Submit</button>
-                    <button type="button" class="btn">Cancel</button>
-                </div>
-            </form>
-        </div>
+        <div class="card-container" id="card-container"></div>
     </div>
     <script src="./script.js"></script>
 </body>
