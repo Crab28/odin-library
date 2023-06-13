@@ -13,8 +13,13 @@ Book.prototype.getInfo = function() {
         title: this.title, 
         author: this.author,
         pages: this.pages,
-        read: this.read
+        read: this.read,
+        id: this.id
     }
+}
+
+Book.prototype.getId = function() {
+    return this.id
 }
 
 function createBook(info) {
@@ -75,13 +80,33 @@ function createBookElement(bookInfo) {
     readContainer.appendChild(readEl);
     readContainer.appendChild(readInputEl);
 
-    const elementsArray = [titleEl, authorEl, pagesEl, readContainer];
+    const removeBtnEl = createCardRemoveButton(bookInfo.id);
+
+    const elementsArray = [titleEl, authorEl, pagesEl, readContainer, removeBtnEl];
     
     elementsArray.forEach(el => {
         newDiv.appendChild(el);
     });
 
     return newDiv;
+}
+
+function createCardRemoveButton(bookId) {
+    const removeBtnEl = document.createElement('div');
+    removeBtnEl.classList.add('remove-btn');
+    removeBtnEl.textContent = 'Remove Book';
+
+    removeBtnEl.addEventListener('click', () => {
+        myLibrary.forEach((book, index) => {
+            if (book.getId() === bookId) {
+                myLibrary.splice(index, 1);
+                displayBooks();
+                return;
+            }
+        });
+    });
+
+    return removeBtnEl;
 }
 
 function createBookForm() {
