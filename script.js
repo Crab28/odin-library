@@ -97,13 +97,13 @@ function createCardRemoveButton(bookId) {
     removeBtnEl.textContent = 'Remove Book';
 
     removeBtnEl.addEventListener('click', () => {
-        myLibrary.forEach((book, index) => {
-            if (book.getId() === bookId) {
+        for (let index = 0; index < myLibrary.length; index++) {
+            if (myLibrary[index].getId() === bookId) {
                 myLibrary.splice(index, 1);
                 displayBooks();
-                return;
+                break;
             }
-        });
+        }
     });
 
     return removeBtnEl;
