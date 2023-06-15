@@ -1,25 +1,28 @@
 let myLibrary = [];
 
-function Book(title, author, pages, read, id) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.id = id;
-}
+class Book {
 
-Book.prototype.getInfo = function() {
-    return {
-        title: this.title, 
-        author: this.author,
-        pages: this.pages,
-        read: this.read,
-        id: this.id
+    constructor(title, author, pages, read, id) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.id = id;
     }
-}
 
-Book.prototype.getId = function() {
-    return this.id
+    getInfo() {
+        return {
+            title: this.title, 
+            author: this.author,
+            pages: this.pages,
+            read: this.read,
+            id: this.id
+        }
+    }
+
+    getId() {
+        return this.id
+    }
 }
 
 function createBook(info) {
